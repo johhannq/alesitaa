@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Día de la Primavera</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Preload images for better performance -->
+    <link rel="preload" href="./img/dino.webp" as="image">
+    <link rel="preload" href="./img/flower.png" as="image">
+    <link rel="preload" href="./img/flower1.png" as="image">
+</head>
+<body>
+    <div class="background-gradient"></div>
+    <div class="container">
+        
+        <div class="ticket">
+            <div class="ticket-content">
+                <div class="ticket-header">
+                    <h2>Lunch Romántico</h2>
+                    <div class="ticket-badge">ADMIT ONE</div>
+                </div>
+                <div class="ticket-details">
+                    <p><span>Fecha:</span> Mañana Sabado 22</p>
+                    <p><span>Hora:</span> 15:00</p>
+                    <p><span>Lugar:</span> Cafeteria Helarde</p>
+                    <p class="ticket-note">Disfruta estas flores amarillas amorcito,
+                        Te amo mi niña 🤍</p>
+                </div>
+                <button class="accept-button">Aceptar Invitación</button>
+            </div>
+            <div class="ticket-tear"></div>
+        </div>
+    </div>
+    
+    <div id="flower-container"></div>
+    <div id="confetti-container"></div>
+    
+    <!-- Hidden div with images to ensure they're loaded -->
+    <div style="display: none;">
+        <img src="./img/flower.png" alt="">
+        <img src="./img/flower1.png" alt="">
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
+

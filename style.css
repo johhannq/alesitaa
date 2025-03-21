@@ -1,0 +1,293 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  background: #fffbeb;
+  color: #333;
+}
+
+.background-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #fff8c4 0%, #ffd166 100%);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  padding: 20px;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.message {
+  font-size: 1.5rem;
+  color: #8b5a00;
+  text-align: center;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(255, 209, 102, 0.2);
+  border: 1px solid rgba(255, 209, 102, 0.3);
+  width: 100%;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ticket {
+  position: relative;
+  width: 300px;
+  background: #fffaeb;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(255, 209, 102, 0.2), 0 5px 15px rgba(139, 90, 0, 0.1);
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  margin-top: 20px;
+  border: 1px solid rgba(255, 209, 102, 0.3);
+}
+
+.ticket:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05);
+  box-shadow: 0 20px 40px rgba(255, 209, 102, 0.3), 0 10px 20px rgba(139, 90, 0, 0.15);
+}
+
+.ticket-content {
+  padding: 25px;
+}
+
+.ticket-header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.ticket-header h2 {
+  margin: 0 0 10px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #8b5a00;
+}
+
+.ticket-badge {
+  display: inline-block;
+  background: #ffb800;
+  color: #8b5a00;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.ticket-details {
+  margin-bottom: 20px;
+}
+
+.ticket-details p {
+  margin: 10px 0;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  color: #6b4500;
+}
+
+.ticket-details p span {
+  font-weight: 600;
+  color: #8b5a00;
+}
+
+.ticket-note {
+  text-align: center;
+  font-size: 0.8rem !important;
+  color: #b38728;
+  font-style: italic;
+}
+
+.ticket-tear {
+  position: relative;
+  height: 20px;
+  background: #fff3d0;
+  margin-top: 10px;
+}
+
+.ticket-tear::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: repeating-linear-gradient(to right, transparent, transparent 10px, #ffd166 10px, #ffd166 20px);
+}
+
+.accept-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #ffb800;
+  color: #8b5a00;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.accept-button:hover {
+  background: #ffcc33;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 184, 0, 0.4);
+}
+
+#flower-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: hidden;
+}
+
+.flower {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 5px 15px rgba(255, 209, 102, 0.3));
+  opacity: 0;
+  transform: scale(0) rotate(0deg);
+  animation: flowerAppear 0.2s forwards, flowerFloat 20s linear infinite;
+  z-index: 5;
+}
+
+@keyframes flowerAppear {
+  to {
+    opacity: 0.95;
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes flowerFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-30px) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(270deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #ffb800;
+  opacity: 0;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(calc(100vh + 100px)) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .message {
+    font-size: 1.2rem;
+    padding: 15px;
+  }
+
+  .ticket {
+    width: 90%;
+    max-width: 300px;
+  }
+
+  /* Shorter animation distance for mobile */
+  @keyframes flowerFloat {
+    0% {
+      transform: translateY(0) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-15px) rotate(90deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(180deg);
+    }
+    75% {
+      transform: translateY(-5px) rotate(270deg);
+    }
+    100% {
+      transform: translateY(0) rotate(360deg);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .message {
+    font-size: 1rem;
+  }
+
+  .ticket-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .ticket-details p {
+    font-size: 0.9rem;
+  }
+}
+
